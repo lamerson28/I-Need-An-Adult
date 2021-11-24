@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import {useNavigate} from 'react-router-dom';
 import {
   enterUsernameActionCreator,
   enterPasswordActionCreator,
@@ -12,6 +13,7 @@ export default function SignUp() {
   // const [user, SetUser] = useState(null);
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     console.log('clicked')
@@ -22,6 +24,7 @@ export default function SignUp() {
     };
     e.preventDefault();
     dispatch(registerSubmitActionCreator(user));
+    navigate('/dashboard');
   };
   return (
     <div>

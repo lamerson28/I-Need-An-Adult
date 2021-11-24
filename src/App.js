@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import LandingPage from './components/LandingPage';
 import Dashboard from './components/Dashboard';
 import NavBar from './components/NavBar';
+import CreateTask from './components/CreateTask';
 import {
   Routes as Switch,
   BrowserRouter as Router,
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/" element={<LandingPage />} />
         {/* user must be logged in to see these routes */}
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/createTask" element={<CreateTask />} />
       </Switch>
     </Router>
   );
