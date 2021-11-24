@@ -29,9 +29,9 @@ app.get('/', (req, res) => {
 // GET REQUEST to '/' serves dashboard
 
 // routes requests to '/task/ to taskRouter
-app.use('/task', taskRouter);
+app.use('/api/task', taskRouter);
 // routes requests to '/rewards/ to rewardsRouter
-app.use('/users', userRouter);
+app.use('/api/users', userRouter);
 
 // Catch all request handler
 app.use('*', (req, res) => {

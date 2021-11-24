@@ -7,7 +7,7 @@ const usersController = {};
 usersController.addUser = async (req, res, next) => {
   try {
     const { email, username, password } = req.body;
-
+    console.log(email, password)
     const SQLquery = `INSERT INTO users (email, username, password) VALUES ('${email}', '${username}', '${password}');`;
     const results = await db.query(SQLquery);
     return next();
