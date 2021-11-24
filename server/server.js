@@ -4,6 +4,9 @@ const path = require('path'); // NEW
 const router = express.Router();
 const app = express();
 const port = process.env.PORT || 3000;
+const cookieParser = require("cookie-parser");
+
+const dotenv = require('dotenv').config();
 
 // /dist/ folder path
 const DIST_DIR = path.join(__dirname, '../dist');
@@ -11,6 +14,7 @@ const DIST_DIR = path.join(__dirname, '../dist');
 const HTML_FILE = path.join(DIST_DIR, 'index.html');
 
 // to serve the bundle.js in dist when in production
+app.use(cookieParser());
 app.use(express.static(DIST_DIR));
 // parse incoming requests
 app.use(express.json());
@@ -29,7 +33,7 @@ app.get('/', (req, res) => {
 // GET REQUEST to '/' serves dashboard
 
 // routes requests to '/task/ to taskRouter
-app.use('/api/task', taskRouter);
+app.use('/api/tasks', taskRouter);
 // routes requests to '/rewards/ to rewardsRouter
 app.use('/api/users', userRouter);
 
