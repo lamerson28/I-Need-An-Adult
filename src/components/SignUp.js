@@ -1,18 +1,32 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   enterUsernameActionCreator,
   enterPasswordActionCreator,
   enterEmailActionCreator,
+  registerSubmitActionCreator,
 } from '../actions/actions';
+import styles from '../styles.scss';
 
 export default function SignUp() {
   // const [user, SetUser] = useState(null);
   const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
+
+  const handleSubmit = (e) => {
+    console.log('clicked')
+    const user = {
+      username: auth.username,
+      email: auth.email,
+      password: auth.password,
+    };
+    e.preventDefault();
+    dispatch(registerSubmitActionCreator(user));
+  };
   return (
     <div>
       <h2>Sign Up</h2>
-      <form className="signUpContainer">
+      <form onSubmit={handleSubmit} className="signUpContainer">
         <label className="loginContainer" id="loginContainer">
           <div id="loginUsername">Username</div>
           <input
@@ -41,10 +55,10 @@ export default function SignUp() {
             id="password"
           />
         </label>
+        <button id="signUpButton" type="submit">
+          Sign Up
+        </button>
       </form>
-      <button id="signUpButton" onClick={() => {}}>
-        <div>Sign Up</div>
-      </button>
     </div>
   );
 }
