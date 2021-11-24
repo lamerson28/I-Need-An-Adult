@@ -13,6 +13,7 @@ taskController.addTask = async (req, res, next) => {
     // 
     const SQLquery = `INSERT INTO task (name, done, value) VALUES ('${name}', '${done}', '${value}')`;
     const results = await db.query(SQLquery);
+    //Tehya's comment: add results to res.locals
     return next();
   } catch (err) {
     return next({
