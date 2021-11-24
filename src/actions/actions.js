@@ -20,18 +20,17 @@ export const enterPasswordActionCreator = (input) => ({
 });
 
 export const registerSubmitActionCreator = (user) => {
-  console.log('submit')
   return (dispatch) => {
-    fetch('/api/users/', {
+    fetch('/api/users', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
     },
-      body: {
+      body: JSON.stringify({
         username: user.username,
         email: user.email,
         password: user.password
-      }
+      })
     }).then(response => {
       console.log(response)
     }).catch(err => console.log(err))
