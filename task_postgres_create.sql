@@ -16,18 +16,16 @@ CREATE TABLE public.tasks (
   taskName VARCHAR NOT NULL,
   completed BOOL NOT NULL,
   rewards VARCHAR,
-  UserID int,
-  FOREIGN KEY (UserID)
-  REFERENCES users(UserID)
+  email VARCHAR NOT NULL,
+  FOREIGN KEY (email)
+  REFERENCES users(email)
 );
 
 CREATE TABLE public.users (
-  UserID SERIAL PRIMARY KEY,
-  firstName  VARCHAR NOT NULL,
-  lastName VARCHAR NOT NULL,
+  email  VARCHAR NOT NULL PRIMARY KEY,
   username VARCHAR NOT NULL,
   password VARCHAR NOT NULL
-)
+);
 -- creating table & schema for rewards data
 -- CREATE TABLE rewards (
 --   "rewards_id" SERIAL NOT NULL,

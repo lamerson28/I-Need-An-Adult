@@ -16,14 +16,15 @@ app.use(express.static(DIST_DIR));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const taskRouter = require('./routes/task.js');
+const userRouter = require('./routes/users.js');
+
 // Send GET requests to '/' to index.html
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../dist/index.html'));
 });
 
 // Routers
-const taskRouter = require('./routes/task.js');
-const userRouter = require('./routes/users.js');
 
 // GET REQUEST to '/' serves dashboard
 
