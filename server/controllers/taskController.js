@@ -8,12 +8,10 @@ const taskController = {}
 taskController.addTask = async (req, res, next) => {
   try {
     // deconstruct the properties from the request body 
-    const { name, done, value } = req.body;
+    const { taskname, completed, rewards, email } = req.body;
 
-    // 
-    const SQLquery = `INSERT INTO task (name, done, value) VALUES ('${name}', '${done}', '${value}')`;
+    const SQLquery = `INSERT INTO tasks (taskname, completed, rewards, email) VALUES ('${taskname}', '${completed}', '${rewards}', '${email}');`;
     const results = await db.query(SQLquery);
-    //Tehya's comment: add results to res.locals
     return next();
   } catch (err) {
     return next({
@@ -25,7 +23,7 @@ taskController.addTask = async (req, res, next) => {
 
 taskController.getAllTasks = async (req, res, next) => {
   try {
-    const everyTask = await db.query('SELECT * FROM task');
+    const everyTask = await db.query('SELECT * FROM tasks');
     res.locals.tasklist = everyTask.rows;
     return next();
   } catch (err) {
