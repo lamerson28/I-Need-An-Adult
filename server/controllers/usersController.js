@@ -6,12 +6,13 @@ const usersController = {};
 
 usersController.addUser = async (req, res, next) => {
   try {
-    const { firstname, lastname, username, password } = req.body;
+    const { email, username, password } = req.body;
 
-    const SQLquery = `INSERT INTO users (firstname, lastname, username, password) VALUES ('${firstname}', '${lastname}', '${username}', '${password}')`;
+    const SQLquery = `INSERT INTO users (email, username, password) VALUES ('${email}', '${username}', '${password}');`;
     const results = await db.query(SQLquery);
     return next();
   } catch (err) {
+    res.json('Email already exists');
     return next({
       log: `rewardsController.addReward: ERROR: ${err}`,
       message: { err: 'Error occurred in usersController.addUser. Check server logs for more details.' }
@@ -19,32 +20,26 @@ usersController.addUser = async (req, res, next) => {
   };
 }
 
-// usersController.getAllUsers = async (req, res, next) => {
-//   try {
-//     const results = await db.query('SELECT * from rewards');
-//     res.locals.rewardsList = results.rows;
-//     return next();
-//   } catch (err) {
-//     return next({
-//       log: `rewardsController.getAllRewards: ERROR: ${err}`,
-//       message: { err: 'Error occurred in rewardsController.getAllRewards. Check server logs for more details.' }
-//     })
-//   };
-// };
+usersController.getUser = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+    
+    const SQLquery = `SELECT password FROM public.users WHERE email = '${email}';`; 
+    const results = await db.query(SQLquery);
 
-// usersController.deleteReward = async (req, res, next) => {
-//   try {
-//     const { id } = req.body;
-
-//     const SQLquery = `DELETE FROM rewards WHERE rewards_id='${id}'`;
-//     const results = await db.query(SQLquery);
-//     return next();
-//   } catch (err) {
-//     return next({
-//       log: `rewardsController.deleteReward: ERROR: ${err}`,
-//       message: { err: 'Error occurred in rewardsController.deleteReward. Check server logs for more details.' }
-//     })
-//   };
-// };
+    //check if the password from the body equals the one from the db
+    //then in the router redirect them to the home page and display that users tasks
+    res.locals.email = email;
+    res.locals.password = results.rows;
+    // console.log('RES LOCALS', res.locals.password[0].password);
+    // console.log(req.body.password);
+    return next();
+  } catch (err) {
+    return next({
+      log: `rewardsController.getAllRewards: ERROR: ${err}`,
+      message: { err: 'Error occurred in rewardsController.getAllRewards. Check server logs for more details.' }
+    })
+  };
+};
 
 module.exports = usersController;
