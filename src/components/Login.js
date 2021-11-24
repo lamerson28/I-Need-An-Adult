@@ -6,9 +6,9 @@ export default function Login(){
   return(
     <div>
       <form>
-          <label className='loginContainer' id='loginContainer'>
-            <div id='loginUsername'>Username</div>
-            <input type='text' id='username' />
+          <label className='loginEmailContainer' id='loginEmailContainer'>
+            <div id='loginEmailUsername'>Email</div>
+            <input type='email' id='email' />
           </label>
           <label className="passwordContainer" id="passwordContainer">
             <div id="loginPassword"> Password</div>
