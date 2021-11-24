@@ -18,3 +18,23 @@ export const enterPasswordActionCreator = (input) => ({
   type: types.ENTER_PASSWORD,
   payload: input,
 });
+
+export const registerSubmitActionCreator = (user) => {
+  console.log('submit')
+  return (dispatch) => {
+    fetch('/api/users/', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+    },
+      body: {
+        username: user.username,
+        email: user.email,
+        password: user.password
+      }
+    }).then(response => {
+      console.log(response)
+    }).catch(err => console.log(err))
+  }
+}
+
