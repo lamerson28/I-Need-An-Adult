@@ -23,19 +23,19 @@ app.get('/', (req, res) => {
 
 // Routers
 const taskRouter = require('./routes/task.js');
-const rewardsRouter = require('./routes/rewards.js');
+const userRouter = require('./routes/users.js');
 
 // GET REQUEST to '/' serves dashboard
 
 // routes requests to '/task/ to taskRouter
 app.use('/task', taskRouter);
 // routes requests to '/rewards/ to rewardsRouter
-app.use('/rewards', rewardsRouter);
+app.use('/users', userRouter);
 
 // Catch all request handler
-app.use((req, res) => {
-  res.sendStatus(418);
-});
+app.use('*', (req, res) => {
+  res.sendStatus(418)
+})
 
 // Global Error Handler
 app.use((err, req, res, next) => {
