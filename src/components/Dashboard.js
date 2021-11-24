@@ -1,18 +1,16 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import TaskList from './TaskList';
 
-
-export default function Dashboard (){
-  return(
-    <div className="dashboardButtons">
-    <div className="viewAllButton">
-    <button type="button">View All Tasks</button>
+export default function Dashboard() {
+  return (
+    <div className="viewAllTask">
+      <TaskList />
+      <div className="dashboardButtons">
+        <div className="taskCreaterButton">
+          <Link to="/create">Create a Task</Link>
+        </div>
+      </div>
     </div>
-    <div className="taskCreaterButton">
-    <button type="button">Create a Task</button>
-    </div>
-    </div>
-
-  )
+  );
 }
-
-
