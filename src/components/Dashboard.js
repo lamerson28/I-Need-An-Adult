@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TaskList from './TaskList';
+import styles from '../styles.scss';
 
 export default function Dashboard() {
   return (
