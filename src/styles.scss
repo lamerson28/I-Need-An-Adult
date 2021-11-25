@@ -28,3 +28,69 @@ body {
   background-position: center;
   background-size: cover;
 }
+
+.loginStyles{
+  background-color: grey;
+  width: fit-content;
+  padding: 26px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  border-radius: 10px;
+  position: absolute;
+  right: 100px;
+  top: 300px;
+  form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    label{
+      display: block;
+      margin: 5px;
+    }
+    input{
+      border-radius: 5px;
+      border: 1px solid grey;
+    }
+  }
+  #signUpButton{
+    margin-top: 10px;
+    display: block;
+  }
+}
+
+
+.createTaskStyling{
+  background-color: grey;
+  width: fit-content;
+  padding: 26px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  border-radius: 10px;
+  position: absolute;
+  right: 100px;
+  top: 300px;
+  form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    label{
+      display: block;
+      margin: 5px;
+    }
+    input{
+      border-radius: 5px;
+      border: 1px solid grey;
+    }
+  }
+  #signUpButton{
+    margin-top: 10px;
+    display: block;
+  }
+}
+
+
+
+
+//can do password and email border radius

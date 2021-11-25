@@ -25,7 +25,7 @@ export default function CreateTask() {
   };
 
   return (
-    <div>
+    <div className='createTaskStyling'>
       <h2>Create New Task</h2>
       <form onSubmit={handleSubmit}>
         <label className="taskCreaterForm" id="taskCreaterForm">
