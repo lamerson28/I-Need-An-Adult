@@ -3,6 +3,8 @@ const usersController = require('../controllers/usersController');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const secret = process.env.JWT_SECRET;
+const bcrypt = require('bcrypt');
+
 // requests to '/users'
 
 //addRewards - routes to the usersController.addReward method, the method points back here after completion and confirmation is sent back to client
@@ -13,10 +15,11 @@ router.post('/', usersController.addUser, (req, res) => {
 });
 
 
-router.post('/login', usersController.getUser, (req, res) => {
+router.post('/login', usersController.getUser, async (req, res) => {
   //bcrypt stuff
   console.log('inside post')
-  if (res.locals.password[0].password === req.body.password) {
+  const comparePass = await bcrypt.compare(req.body.password, res.locals.password[0].password)
+  if (comparePass) {
     console.log('INSIDE IF')
     const token = jwt.sign({ user: res.locals.email }, secret);
     console.log(token);
