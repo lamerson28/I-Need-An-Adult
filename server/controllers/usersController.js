@@ -2,13 +2,16 @@ const express = require('express');
 const db = require('../db');
 const pool = require('../db');
 
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 const usersController = {};
 
 usersController.addUser = async (req, res, next) => {
   try {
     const { email, username, password } = req.body;
-    console.log(email, password)
-    const SQLquery = `INSERT INTO users (email, username, password) VALUES ('${email}', '${username}', '${password}');`;
+    const hashedPass = await bcrypt.hash(password, saltRounds);
+    const SQLquery = `INSERT INTO users (email, username, password) VALUES ('${email}', '${username}', '${hashedPass}');`;
     const results = await db.query(SQLquery);
     return next();
   } catch (err) {
