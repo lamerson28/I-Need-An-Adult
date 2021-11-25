@@ -7,6 +7,7 @@ const authState = {
   username: '',
   email: '',
   password: '',
+  isLoggedIn: false,
 };
 
 const authReducer = (state = authState, action) => {
@@ -41,9 +42,24 @@ const authReducer = (state = authState, action) => {
       };
       return changedEmail;
 
+    case types.REGISTER_SUBMIT:
+      const resetState = {
+        ...state,
+        email: '',
+        username: '',
+        password: '',
+        isLoggedIn: true,
+      };
+      return resetState;
+
     default:
       return state;
   }
+  // case types.ENTER_TASK_TITLE:
+  //   const enterTaskTitle={
+  //     ...state,
+
+  //   }
 };
 
 export default authReducer;

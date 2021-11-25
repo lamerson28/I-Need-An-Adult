@@ -24,16 +24,50 @@ export const registerSubmitActionCreator = (user) => {
     fetch('/api/users', {
       method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-    },
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         username: user.username,
         email: user.email,
-        password: user.password
+        password: user.password,
+      }),
+    })
+      .then((response) => {
+        console.log(response);
+        dispatch({ type: types.REGISTER_SUBMIT });
       })
-    }).then(response => {
-      console.log(response)
-    }).catch(err => console.log(err))
-  }
-}
+      .catch((err) => console.log(err));
+  };
+};
 
+export const enterTaskTitleActionCreator = (input) => ({
+  type: types.ENTER_TASK_TITLE,
+  payload: input,
+});
+
+export const enterRewardActionCreator = (input) => ({
+  type: types.ENTER_REWARD,
+  payload: input,
+});
+
+export const addTaskActionCreator = (task) => {
+  return (dispatch) => {
+    fetch('/api/users', {
+      //change post route to match backend
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        title: task.title,
+        reward: task.reward,
+        done: task.done,
+      }),
+    })
+      .then((response) => {
+        console.log(response);
+        dispatch({ type: types.ADD_TASK_SUBMIT });
+      })
+      .catch((err) => console.log(err));
+  };
+};

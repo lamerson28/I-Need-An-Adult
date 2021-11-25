@@ -8,7 +8,7 @@ export default function Dashboard() {
       <TaskList />
       <div className="dashboardButtons">
         <div className="taskCreaterButton">
-          <Link to="/create">Create a Task</Link>
+          <Link to="/createTask">Create a Task</Link>
         </div>
       </div>
     </div>

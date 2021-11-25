@@ -10,3 +10,7 @@ export const ENTER_PASSWORD = 'ENTER_PASSWORD';
 export const REGISTER_SUBMIT = 'REGISTER_SUBMIT';
 
 export const ENTER_TASK_TITLE = 'ENTER_TASK_TITLE';
+
+export const ENTER_REWARD = 'ENTER_REWARD';
+
+export const ADD_TASK_SUBMIT = 'ADD_TASK_SUBMIT';
