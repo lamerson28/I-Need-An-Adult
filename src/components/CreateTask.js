@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../styles.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   enterTaskTitleActionCreator,
