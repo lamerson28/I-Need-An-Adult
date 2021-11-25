@@ -26,11 +26,12 @@ export default function CreateTask() {
 
   return (
     <div className='createTaskStyling'>
-      <h2>Create New Task</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 className='formTitle'>Create New Task</h2>
+      <form className='taskForm' onSubmit={handleSubmit}>
+        <div className='taskAndRewardInputDiv'>
         <label className="taskCreaterForm" id="taskCreaterForm">
-          <div id="createTaskInput">Task</div>
           <input
+          placeholder='Task'
             onChange={(e) =>
               dispatch(enterTaskTitleActionCreator(e.target.value))
             }
@@ -39,13 +40,17 @@ export default function CreateTask() {
           />
         </label>
         <label className="enterReward" id="enterReward">
-          <div id="enterRewardInput">Reward</div>
-          <input
+
+          <input  placeholder='Reward'
             onChange={(e) => dispatch(enterRewardActionCreator(e.target.value))}
             type="text"
             id="enterReward"
           />
         </label>
+        </div>
+        <button id="submitTaskButton">
+        <div>Add Task</div>
+      </button>
       </form>
     </div>
   );
