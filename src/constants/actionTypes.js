@@ -11,6 +11,8 @@ export const REGISTER_SUBMIT = 'REGISTER_SUBMIT';
 
 export const LOGIN_SUBMIT = 'REGISTER_SUBMIT';
 
+export const GET_TASKS = 'GET_TASKS';
+
 export const ENTER_TASK_TITLE = 'ENTER_TASK_TITLE';
 
 export const ENTER_REWARD = 'ENTER_REWARD';

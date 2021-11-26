@@ -16,40 +16,43 @@ export default function CreateTask() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const task = {
-      title: taskState.title,
-      reward: taskState.reward,
-      done: taskState.done,
+      taskname: taskState.taskname,
+      rewards: taskState.rewards,
+      completed: taskState.completed,
     };
     dispatch(addTaskActionCreator(task));
     navigate('/dashboard');
   };
 
   return (
-    <div className='createTaskStyling'>
-      <h2 className='formTitle'>Create New Task</h2>
-      <form className='taskForm' onSubmit={handleSubmit}>
-        <div className='taskAndRewardInputDiv'>
-        <label className="taskCreaterForm" id="taskCreaterForm">
-          <input
-          placeholder='Next on the list...'
-            onChange={(e) =>
-              dispatch(enterTaskTitleActionCreator(e.target.value))
-            }
-            type="text"
-            id="enterTask"
-          />
-        </label>
-        <label className="enterReward" id="enterReward">
-          <input  placeholder='Reward'
-            onChange={(e) => dispatch(enterRewardActionCreator(e.target.value))}
-            type="text"
-            id="enterReward"
-          />
-        </label>
+    <div className="createTaskStyling">
+      <h2 className="formTitle">Create New Task</h2>
+      <form className="taskForm" onSubmit={handleSubmit}>
+        <div className="taskAndRewardInputDiv">
+          <label className="taskCreaterForm" id="taskCreaterForm">
+            <input
+              placeholder="Next on the list..."
+              onChange={(e) =>
+                dispatch(enterTaskTitleActionCreator(e.target.value))
+              }
+              type="text"
+              id="enterTask"
+            />
+          </label>
+          <label className="enterReward" id="enterReward">
+            <input
+              placeholder="Reward"
+              onChange={(e) =>
+                dispatch(enterRewardActionCreator(e.target.value))
+              }
+              type="text"
+              id="enterReward"
+            />
+          </label>
         </div>
         <button id="submitTaskButton">
-        <div>Add Task</div>
-      </button>
+          <div>Add Task</div>
+        </button>
       </form>
     </div>
   );

@@ -60,6 +60,16 @@ export const loginSubmitActionCreator = (user) => {
   };
 };
 
+export const getTasksActionCreator = () => {
+  return (dispatch) => {
+    fetch('/api/tasks')
+      .then((response) => response.json())
+      // .then((data) => console.log(data))
+      .then(data => dispatch({type: types.GET_TASKS, payload: data}))
+      .catch((error) => console.error(error));
+  };
+};
+
 export const enterTaskTitleActionCreator = (input) => ({
   type: types.ENTER_TASK_TITLE,
   payload: input,
@@ -79,9 +89,9 @@ export const addTaskActionCreator = (task) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        title: task.title,
-        reward: task.reward,
-        done: task.done,
+        taskname: task.taskname,
+        rewards: task.rewards,
+        completed: task.completed,
       }),
     })
       .then((response) => {
@@ -91,7 +101,3 @@ export const addTaskActionCreator = (task) => {
       .catch((err) => console.log(err));
   };
 };
-
-/* ********************* DELETING TASKS==> what gabby worked on *********************** */
-
-//need to add the DELETE_TASK
