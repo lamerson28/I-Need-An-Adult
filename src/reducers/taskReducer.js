@@ -2,45 +2,44 @@ import * as types from '../constants/actionTypes';
 
 //initial state
 const taskState = {
-  title: '',
-  reward: '',
-  done: false,
+  taskname: '',
+  rewards: '',
+  completed: false,
   tasksList: [],
-  tasksLoaded: false
+  tasksLoaded: false,
 };
 
 const taskReducer = (state = taskState, action) => {
   switch (action.type) {
     case types.GET_TASKS:
-      
       const changes = {
         ...state,
         tasksList: action.payload,
-        tasksLoaded: true
+        tasksLoaded: true,
       };
-      if (action.payload.length === 0){
-        changes[tasksList] = []
+      if (action.payload.length === 0) {
+        changes[tasksList] = [];
       }
       return changes;
 
     case types.ENTER_TASK_TITLE:
       const changedTitle = {
         ...state,
-        title: action.payload,
+        taskname: action.payload,
       };
       return changedTitle;
     case types.ENTER_REWARD:
       const changedReward = {
         ...state,
-        reward: action.payload,
+        rewards: action.payload,
       };
       return changedReward;
     case types.ADD_TASK_SUBMIT:
       const resetState = {
         ...state,
-        title: '',
-        reward: '',
-        done: false,
+        taskname: '',
+        rewards: '',
+        completed: false,
       };
       return resetState;
 

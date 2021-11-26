@@ -64,8 +64,8 @@ export const getTasksActionCreator = () => {
   return (dispatch) => {
     fetch('/api/tasks')
       .then((response) => response.json())
-      .then((data) => console.log(data))
-      // .then(data => dispatch({type: types.GET_TASKS, payload: data}))
+      // .then((data) => console.log(data))
+      .then(data => dispatch({type: types.GET_TASKS, payload: data}))
       .catch((error) => console.error(error));
   };
 };
@@ -89,9 +89,9 @@ export const addTaskActionCreator = (task) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        title: task.title,
-        reward: task.reward,
-        done: task.done,
+        taskname: task.taskname,
+        rewards: task.rewards,
+        completed: task.completed,
       }),
     })
       .then((response) => {
