@@ -26,10 +26,10 @@ usersController.addUser = async (req, res, next) => {
 usersController.getUser = async (req, res, next) => {
   try {
     const { email } = req.body;
-    
+    // const email = 'ttt@email.com';
     const SQLquery = `SELECT password FROM public.users WHERE email = '${email}';`; 
     const results = await db.query(SQLquery);
-
+    console.log(results);
     //check if the password from the body equals the one from the db
     //then in the router redirect them to the home page and display that users tasks
     res.locals.email = email;
