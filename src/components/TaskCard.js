@@ -3,8 +3,9 @@ import styles from '../styles.scss';
 
 export default function TaskCard() {
   return (
-    <div>
-      <h1>Task 1</h1>
+    <div className='taskCardContainer'>
+      <h3>Task 1</h3>
     </div>
   );
 }
+

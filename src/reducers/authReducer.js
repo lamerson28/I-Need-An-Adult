@@ -55,11 +55,6 @@ const authReducer = (state = authState, action) => {
     default:
       return state;
   }
-  // case types.ENTER_TASK_TITLE:
-  //   const enterTaskTitle={
-  //     ...state,
-
-  //   }
 };
 
 export default authReducer;

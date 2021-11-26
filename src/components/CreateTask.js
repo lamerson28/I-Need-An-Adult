@@ -25,12 +25,13 @@ export default function CreateTask() {
   };
 
   return (
-    <div>
-      <h2>Create New Task</h2>
-      <form onSubmit={handleSubmit}>
+    <div className='createTaskStyling'>
+      <h2 className='formTitle'>Create New Task</h2>
+      <form className='taskForm' onSubmit={handleSubmit}>
+        <div className='taskAndRewardInputDiv'>
         <label className="taskCreaterForm" id="taskCreaterForm">
-          <div id="createTaskInput">Task</div>
           <input
+          placeholder='Next on the list...'
             onChange={(e) =>
               dispatch(enterTaskTitleActionCreator(e.target.value))
             }
@@ -39,14 +40,25 @@ export default function CreateTask() {
           />
         </label>
         <label className="enterReward" id="enterReward">
-          <div id="enterRewardInput">Reward</div>
-          <input
+          <input  placeholder='Reward'
             onChange={(e) => dispatch(enterRewardActionCreator(e.target.value))}
             type="text"
             id="enterReward"
           />
         </label>
+        </div>
+        <button id="submitTaskButton">
+        <div>Add Task</div>
+      </button>
       </form>
     </div>
   );
 }
+
+/*
+    <div>
+      <h1>My To Do List</h1>
+      <input type="text" id="my input" placeholder='Next on the list...'></input>
+      <button onClick='newElement()' className='addButton'>Add</button>
+      </div>
+*/

@@ -7,10 +7,13 @@ const tasks = ['task1', 'task2', 'task3', 'task4', 'task5'];
 
 export default function TaskList() {
   return (
-    <div>
+    <div className='viewingAllTasksHeader'>
+      <h2>Viewing All Tasks</h2>
+    <div className='viewingAllTasks'>
       {tasks.map((task) => {
         return <TaskCard />;
       })}
+    </div>
     </div>
   );
 }
