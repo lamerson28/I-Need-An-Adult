@@ -16,3 +16,5 @@ export const ENTER_TASK_TITLE = 'ENTER_TASK_TITLE';
 export const ENTER_REWARD = 'ENTER_REWARD';
 
 export const ADD_TASK_SUBMIT = 'ADD_TASK_SUBMIT';
+
+export const DELETE_TASK = 'DELETE_TASK';

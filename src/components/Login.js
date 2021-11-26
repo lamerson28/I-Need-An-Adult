@@ -31,6 +31,7 @@ export default function Login() {
             onChange={(e) => dispatch(enterEmailActionCreator(e.target.value))}
             type="email"
             id="email"
+            placeholder="email address"
           />
         </label>
         <label className="passwordContainer" id="passwordContainer">
@@ -39,6 +40,7 @@ export default function Login() {
             onChange={(e) =>
               dispatch(enterPasswordActionCreator(e.target.value))
             }
+            placeholder="password"
             type="password"
             id="password"
           />

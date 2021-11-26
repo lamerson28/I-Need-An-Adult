@@ -20,7 +20,7 @@ export default function App() {
     <Router>
       <div className="appContainer">
         {/* <h1>
-          <center>I Need An Adult!</center>
+          <center>I am an adult!</center>
         </h1> */}
 
         <NavBar />

@@ -1,5 +1,6 @@
+/* ********************* LANDING PAGE STYLES *********************** */
 body {
-  margin: 0;
+  margin: auto;
 }
 
 .appContainer {
@@ -12,10 +13,42 @@ body {
 
 .loginNavBar {
   background-color: lightcoral;
+  height: 70px;
 }
 
+.welcomeToLoginCSS{
+  background-color: grey;
+  width: fit-content;
+  padding: 26px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  border-radius: 10px;
+  position: absolute;
+  top: 300px;
+  form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    label{
+      display: block;
+      margin: 5px;
+    }
+    input{
+      border-radius: 5px;
+      border: 1px solid grey;
+    }
+  }
+  #loginButton{
+    margin-top: 10px;
+    display: block;
+  }
+}
+
+
 .signUpNavBar {
-  background-color: lightgrey;
+  background-color: lightcoral;
+  height: 70px;
 }
 
 .footerContainer {
@@ -23,8 +56,131 @@ body {
 }
 
 .landingPage {
-  background-image: url('https://res.cloudinary.com/nena/image/upload/v1637804772/IterationProject/landingImage_lk1yz4.jpg');
+  background-image: url('https://careasone.com/blog/wp-content/uploads/2020/10/shutterstock_615337679.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+.loginStyles{
+  background-color: grey;
+  width: fit-content;
+  padding: 26px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  border-radius: 10px;
+  position: absolute;
+  top: 300px;
+  form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    label{
+      display: block;
+      margin: 5px;
+    }
+    input{
+      border-radius: 5px;
+      border: 1px solid grey;
+    }
+  }
+  #signUpButton{
+    margin-top: 10px;
+    display: block;
+  }
+}
+
+.slogan {
+  border: 5px solid yellow;
+  text-align: center;
+}
+
+/* ********************* CREATE TASK CARD STYLES *********************** */
+.createTaskStyling{
+  width: fit-content;
+  padding: 26px;
+  display: flex;
+  flex-direction: column; 
+  border-radius: 10px;
+  position: absolute;
+  top: 100px;
+  align-items: center;
+  border: 5px solid #FFFF00;
+  left: 20%;
+  form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    input{
+      border-radius: 5px;
+      border: 1px solid grey;
+      padding: 10px 20px;
+    }
+  }
+}
+
+.taskCardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#submitTaskButton {
+  background-color: rgb(116, 209, 144);
+  text-emphasis-color: white;
+  color: white;
+  border-radius: 5px;
+  size-adjust: 25%;
+  padding: 10px 10px;
+  border: none;
+  font-size: 18px;
+  margin-top: 30px;
+  cursor: pointer;
+  font-family: inherit;
+  margin-left: -66px;
+}
+
+.taskForm {
+  width: 800px;
+  align-items: center;
+}
+
+.taskCreaterForm {
+  text-align: right;
+  width: max-content;
+  margin-left: auto;
+  margin-right: 70px;
+}
+
+.enterReward {
+  text-align: right;
+  width: max-content;
+  margin-left: auto;
+  margin-right: 70px;
+  margin-top: 30px;
+}
+
+.formTitle{
+  align-self: center;
+  margin-right: 55px;
+}
+
+.taskAndRewardInputDiv{
+  display: inline-block;
+  align-items: center;
+}
+
+
+/* ********************* VIEWING ALL TASKS STYLES *********************** */
+.taskCreaterButton{
+  top: 50px;
+}
+
+.viewingAllTasks{
+  border: 5px solid purple;
+  align-self: center;
+  width: 50%;
+  margin-inline: auto;
+  margin-block: 50px;
 }
