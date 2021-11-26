@@ -16,7 +16,6 @@ export default function LandingPage() {
     </div>
   ) : (
     <div className="landingPage">
-      <h1>Sign up to start adulting</h1>
       <SignUp />
     </div>
   );

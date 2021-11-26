@@ -31,7 +31,7 @@ export default function CreateTask() {
         <div className='taskAndRewardInputDiv'>
         <label className="taskCreaterForm" id="taskCreaterForm">
           <input
-          placeholder='Task'
+          placeholder='Next on the list...'
             onChange={(e) =>
               dispatch(enterTaskTitleActionCreator(e.target.value))
             }
@@ -40,7 +40,6 @@ export default function CreateTask() {
           />
         </label>
         <label className="enterReward" id="enterReward">
-
           <input  placeholder='Reward'
             onChange={(e) => dispatch(enterRewardActionCreator(e.target.value))}
             type="text"
@@ -55,3 +54,11 @@ export default function CreateTask() {
     </div>
   );
 }
+
+/*
+    <div>
+      <h1>My To Do List</h1>
+      <input type="text" id="my input" placeholder='Next on the list...'></input>
+      <button onClick='newElement()' className='addButton'>Add</button>
+      </div>
+*/

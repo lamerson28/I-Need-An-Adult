@@ -19,9 +19,9 @@ export default function App() {
   return (
     <Router>
       <div className="appContainer">
-        <h1>
+        {/* <h1>
           <center>I am an adult!</center>
-        </h1>
+        </h1> */}
 
         <NavBar />
         <Switch>
