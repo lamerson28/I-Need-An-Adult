@@ -40,6 +40,26 @@ export const registerSubmitActionCreator = (user) => {
   };
 };
 
+export const loginSubmitActionCreator = (user) => {
+  return (dispatch) => {
+    fetch('/api/users/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: user.email,
+        password: user.password,
+      }),
+    })
+      .then((response) => {
+        console.log(response);
+        dispatch({ type: types.LOGIN_SUBMIT });
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
 export const enterTaskTitleActionCreator = (input) => ({
   type: types.ENTER_TASK_TITLE,
   payload: input,

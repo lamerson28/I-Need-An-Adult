@@ -52,6 +52,15 @@ const authReducer = (state = authState, action) => {
       };
       return resetState;
 
+    case types.LOGIN_SUBMIT:
+      const loginState = {
+        ...state,
+        email: '',
+        password: '',
+        isLoggedIn: true,
+      };
+      return loginState;
+
     default:
       return state;
   }

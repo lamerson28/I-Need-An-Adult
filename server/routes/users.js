@@ -17,10 +17,10 @@ router.post('/', usersController.addUser, (req, res) => {
 
 router.post('/login', usersController.getUser, async (req, res) => {
   //bcrypt stuff
-  console.log('inside post')
+  // console.log('inside post')
   const comparePass = await bcrypt.compare(req.body.password, res.locals.password[0].password)
   if (comparePass) {
-    console.log('INSIDE IF')
+    // console.log('INSIDE IF')
     const token = jwt.sign({ user: res.locals.email }, secret);
     console.log(token);
     return res.cookie("access_token", token, {
