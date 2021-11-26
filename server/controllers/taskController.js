@@ -22,7 +22,6 @@ taskController.addTask = async (req, res, next) => {
 };
 
 taskController.getAllTasks = async (req, res, next) => {
-  console.log('____________________________________________in get all tasks')
   try {
     const everyTask = await db.query(`SELECT * FROM tasks WHERE email = '${req.user}'`);
     res.locals.tasklist = everyTask.rows;

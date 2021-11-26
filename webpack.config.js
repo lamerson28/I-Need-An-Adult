@@ -37,10 +37,11 @@ module.exports = {
     static: {
       publicPath: path.resolve(__dirname, 'dist'),
     },
-    historyApiFallback: true,
+    // historyApiFallback: true,
     port: 8080,
     proxy: {
       '/api/': 'http://localhost:3000',
     },
+    historyApiFallback: true,
   },
 };
