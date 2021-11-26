@@ -6,12 +6,16 @@ export default function Login() {
     <div className="loginContainer">
       <form>
         <label className="loginEmailContainer" id="loginEmailContainer">
-          <div id="loginEmailUsername">Email</div>
-          <input type="email" id="email" />
+          <div id="loginEmailUsername"></div>
+          <input
+          placeholder='email address'
+           type="email" id="email" />
         </label>
         <label className="passwordContainer" id="passwordContainer">
-          <div id="loginPassword"> Password</div>
-          <input type="password" id="password" />
+          <div id="loginPassword"></div>
+          <input
+          placeholder='password'
+           type="password" id="password" />
         </label>
       </form>
       <button id="loginButton">

@@ -71,3 +71,7 @@ export const addTaskActionCreator = (task) => {
       .catch((err) => console.log(err));
   };
 };
+
+/* ********************* DELETING TASKS==> what gabby worked on *********************** */
+
+//need to add the DELETE_TASK

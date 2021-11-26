@@ -11,8 +11,10 @@ export default function LandingPage() {
 
   return auth.loginClicked === true ? (
     <div className="landingPage">
-      <h1>Welcome to login</h1>
+      <div className='welcomeToLoginCSS'>
+      <h2>Welcome Back!</h2>
       <Login />
+    </div>
     </div>
   ) : (
     <div className="landingPage">
