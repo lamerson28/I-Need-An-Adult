@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   enterUsernameActionCreator,
   enterPasswordActionCreator,
@@ -10,13 +10,12 @@ import {
 import styles from '../styles.scss';
 
 export default function SignUp() {
-  // const [user, SetUser] = useState(null);
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    console.log('clicked')
+    console.log('clicked');
     const user = {
       username: auth.username,
       email: auth.email,

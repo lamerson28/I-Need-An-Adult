@@ -1,22 +1,52 @@
 import React from 'react';
 import styles from '../styles.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import {
+  enterPasswordActionCreator,
+  enterEmailActionCreator,
+  loginSubmitActionCreator,
+} from '../actions/actions';
 
 export default function Login() {
+  const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    console.log('clicked');
+    const user = {
+      email: auth.email,
+      password: auth.password,
+    };
+    e.preventDefault();
+    dispatch(loginSubmitActionCreator(user));
+    navigate('/dashboard');
+  };
   return (
     <div className="loginContainer">
-      <form>
+      <form onSubmit={handleSubmit}>
         <label className="loginEmailContainer" id="loginEmailContainer">
           <div id="loginEmailUsername">Email</div>
-          <input type="email" id="email" />
+          <input
+            onChange={(e) => dispatch(enterEmailActionCreator(e.target.value))}
+            type="email"
+            id="email"
+          />
         </label>
         <label className="passwordContainer" id="passwordContainer">
           <div id="loginPassword"> Password</div>
-          <input type="password" id="password" />
+          <input
+            onChange={(e) =>
+              dispatch(enterPasswordActionCreator(e.target.value))
+            }
+            type="password"
+            id="password"
+          />
         </label>
+        <button id="loginButton" type="submit">
+          Log In
+        </button>
       </form>
-      <button id="loginButton">
-        <div>Log In</div>
-      </button>
     </div>
   );
 }

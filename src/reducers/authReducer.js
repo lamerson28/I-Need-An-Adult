@@ -52,14 +52,18 @@ const authReducer = (state = authState, action) => {
       };
       return resetState;
 
+    case types.LOGIN_SUBMIT:
+      const loginState = {
+        ...state,
+        email: '',
+        password: '',
+        isLoggedIn: true,
+      };
+      return loginState;
+
     default:
       return state;
   }
-  // case types.ENTER_TASK_TITLE:
-  //   const enterTaskTitle={
-  //     ...state,
-
-  //   }
 };
 
 export default authReducer;
