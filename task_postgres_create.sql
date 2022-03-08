@@ -1,13 +1,10 @@
 -- If using ElephantSQL, use:
 -- psql -d <url from elephantSQL> -f todo_postgres_create.sql
 -- from terminal with pwd in project root folder
--- \l to see list of current databases
--- CREATE DATABASE task_db;
 
 -- After creating database with above command,
--- \c task_db
---  to connect to task_db
--- \dt
+-- run '\c' task_db to connect to the db
+-- run \dt
 -- to see tables in current database
 
 -- SQL commands to run to populate database with necessary tables

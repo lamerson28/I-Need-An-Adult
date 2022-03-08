@@ -1,43 +1,39 @@
+// Require in dependencies, invoke express
 const express = require('express');
-//path helps you reference a file. it takes you to a specific file .
-const path = require('path'); // NEW
+const path = require('path');
 const router = express.Router();
 const app = express();
 const port = process.env.PORT || 3000;
+const dotenv = require('dotenv').config();
 const cookieParser = require("cookie-parser");
 
-const dotenv = require('dotenv').config();
+// Require in routers
+const taskRouter = require('./routes/task.js');
+const userRouter = require('./routes/users.js');
+
+// parse incoming requests; incl. cookies 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+// app.use(cookieParser());
 
 // /dist/ folder path
 const DIST_DIR = path.join(__dirname, '../dist');
-// ./dist/index.html file path
-const HTML_FILE = path.join(DIST_DIR, 'index.html');
 
 // to serve the bundle.js in dist when in production
-app.use(cookieParser());
 app.use(express.static(DIST_DIR));
-// parse incoming requests
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-const taskRouter = require('./routes/task.js');
-const userRouter = require('./routes/users.js');
 
 // Send GET requests to '/' to index.html
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../dist/index.html'));
 });
 
-// Routers
-
-// GET REQUEST to '/' serves dashboard
-
 // routes requests to '/task/ to taskRouter
 app.use('/api/tasks', taskRouter);
 // routes requests to '/rewards/ to rewardsRouter
 app.use('/api/users', userRouter);
 
-// Catch all request handler
+
+// Catch all route handler
 app.use('*', (req, res) => {
   res.sendStatus(418)
 })
