@@ -1,4 +1,4 @@
--- Creating local database with following psql commands.  If using ElephantSQL, use:
+-- If using ElephantSQL, use:
 -- psql -d <url from elephantSQL> -f todo_postgres_create.sql
 -- from terminal with pwd in project root folder
 -- \l to see list of current databases
@@ -10,7 +10,14 @@
 -- \dt
 -- to see tables in current database
 
--- creating table & schema for task data
+-- SQL commands to run to populate database with necessary tables
+
+CREATE TABLE public.users (
+  email  VARCHAR NOT NULL PRIMARY KEY,
+  username VARCHAR NOT NULL,
+  password VARCHAR NOT NULL
+);
+
 CREATE TABLE public.tasks (
   TaskID SERIAL PRIMARY KEY,
   taskName VARCHAR NOT NULL,
@@ -21,18 +28,14 @@ CREATE TABLE public.tasks (
   REFERENCES users(email)
 );
 
-CREATE TABLE public.users (
-  email  VARCHAR NOT NULL PRIMARY KEY,
-  username VARCHAR NOT NULL,
-  password VARCHAR NOT NULL
-);
+
 -- creating table & schema for rewards data
--- CREATE TABLE rewards (
---   "rewards_id" SERIAL NOT NULL,
---   "name" VARCHAR NOT NULL,
---   "done" BOOL NOT NULL,
---   "value" INTEGER
--- );
+CREATE TABLE rewards (
+  "rewards_id" SERIAL NOT NULL,
+  "name" VARCHAR NOT NULL,
+  "done" BOOL NOT NULL,
+  "value" INTEGER
+);
 
 
 -- \dt 
